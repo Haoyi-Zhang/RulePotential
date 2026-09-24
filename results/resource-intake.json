@@ -1,0 +1,16 @@
+{
+  "available_cpu_quota": 4,
+  "affinity_cpus": 5,
+  "memory_limit_bytes": 4294967296,
+  "memory_current_at_intake_bytes": 358907904,
+  "swap_total_kib": 0,
+  "writable_free_bytes_at_intake": 32029900800,
+  "workers": 1,
+  "campaign_cpu_budget_seconds": 28800,
+  "reserved_repair_cpu_seconds": 7200,
+  "per_chunk_wall_seconds": 40,
+  "individual_run_max_seconds": 2700,
+  "download_budget_bytes": 1073741824,
+  "expanded_input_budget_bytes": 2147483648,
+  "child_address_space_limit_bytes": 3758096384
+}
