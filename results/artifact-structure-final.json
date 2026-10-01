@@ -1,5 +1,5 @@
 {
-  "artifact_root": "/mnt/data/final-audit/proof-carrying-knowledge-graph-reasoning-for-clinical-pathways/artifact",
+  "artifact_root": ".",
   "errors": [],
   "import_boundary_violations": {
     "src/bounded_optimality_check.py": [],
@@ -33,10 +33,31 @@
   "project_mode": true,
   "scope": "Deterministic local structure, evidence, import-boundary, and frozen-result audit; not experiment re-execution, live bibliographic verification, mechanized proof, or peer review.",
   "status": "PASS",
+  "temporal_validation_dependency": {
+    "direct_model_calls": [
+      "AssertionError",
+      "ValueError",
+      "elaborate",
+      "issubset",
+      "len",
+      "range"
+    ],
+    "grounder_imports": [
+      "itertools"
+    ]
+  },
   "test_method_counts": {
     "audit_tests.py": 6,
     "repair_tests.py": 15,
     "tests": 23
+  },
+  "timing_environment_records": {
+    "results/bounded-offset-repair-reproduction.json": "not_recorded_for_original_measurement",
+    "results/bounded-offset-repair.json": "not_recorded_for_original_measurement",
+    "results/campaign/environment.json": "not_recorded_for_original_measurement",
+    "results/offset-repair-reproduction.json": "not_recorded_for_original_measurement",
+    "results/offset-repair.json": "not_recorded_for_original_measurement",
+    "results/reproduction/environment.json": "not_recorded_for_original_measurement"
   },
   "total_test_methods": 44,
   "warnings": []

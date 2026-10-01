@@ -306,7 +306,11 @@ cmtt/m/n/10.95 doi : 10 . 1007 /
 [34]
 [35]
 [36])
-[37] (./main.aux) )
+[37] (./main.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
 (see the transcript file for additional information)</usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dis
@@ -321,7 +325,7 @@ syc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (37 pages, 277104 bytes).
+Output written on main.pdf (37 pages, 277143 bytes).
 Transcript written on main.log.
 This is BibTeX, Version 0.99d (TeX Live 2025/dev/Debian)
 The top-level auxiliary file: main.aux
@@ -657,7 +661,7 @@ syc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (37 pages, 277104 bytes).
+Output written on main.pdf (37 pages, 277143 bytes).
 Transcript written on main.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -982,5 +986,5 @@ syc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (37 pages, 277104 bytes).
+Output written on main.pdf (37 pages, 277143 bytes).
 Transcript written on main.log.

@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Any
 
 CUTOFF = date(2026, 9, 16)
-EXPECTED_PROJECT_ENTRIES = {"paper", "artifact", "research-plan.md", "CURRENT-STATE.md"}
+EXPECTED_PROJECT_ENTRIES = {"README.md", "artifact", "paper"}
 EXPECTED_TEST_METHODS = {"tests": 23, "repair_tests.py": 15, "audit_tests.py": 6}
 
 
@@ -63,6 +63,21 @@ def _imports(path: Path) -> set[str]:
     return imported
 
 
+def _function_calls(path: Path, function_name: str) -> set[str]:
+    tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == function_name:
+            calls: set[str] = set()
+            for child in ast.walk(node):
+                if isinstance(child, ast.Call):
+                    if isinstance(child.func, ast.Name):
+                        calls.add(child.func.id)
+                    elif isinstance(child.func, ast.Attribute):
+                        calls.add(child.func.attr)
+            return calls
+    raise ValueError(f"missing function {function_name} in {path}")
+
+
 def _pdf_pages(path: Path) -> int:
     completed = subprocess.run(
         ["pdfinfo", str(path)], check=True, text=True, capture_output=True
@@ -88,14 +103,15 @@ def audit(artifact: Path) -> dict[str, Any]:
     warnings: list[str] = []
 
     required = [
-        "README.md", "LICENSE", "src/checker.py", "src/producer.py",
+        "README.md", "LICENSE", "run_environment.py", "src/checker.py", "src/producer.py",
         "src/offset_repair.py", "src/optimality_check.py",
         "src/bounded_offset_repair.py", "src/bounded_optimality_check.py",
         "tests/test_core.py", "repair_tests.py", "audit_tests.py",
         "claim_evidence_ledger.csv", "external_resources.csv",
         "literature_sources.csv", "literature_calibration.csv",
         "bibliography_verification.csv", "verify_bibliography.py",
-        "results/campaign/summary.json", "results/offset-repair.json",
+        "results/campaign/summary.json", "results/campaign/environment.json",
+        "results/reproduction/environment.json", "results/offset-repair.json",
         "results/bounded-offset-repair.json",
         "results/bibliography-verification-final.json",
         "inputs/casbin/SOURCE.md", "licenses/Apache-2.0.txt",
@@ -129,6 +145,48 @@ def audit(artifact: Path) -> dict[str, Any]:
         import_boundaries[relative] = found
         if found:
             errors.append(f"{relative} imports forbidden implementation modules: {found}")
+
+    temporal_dependency = {
+        "direct_model_calls": sorted(_function_calls(artifact / "src/semantic_check.py", "direct_model")),
+        "grounder_imports": sorted(_imports(artifact / "src/semantic_check.py")),
+    }
+    if "elaborate" not in temporal_dependency["direct_model_calls"]:
+        errors.append("semantic_check.direct_model no longer reuses elaborate; paper scope must be re-audited")
+
+    timing_environment_records: dict[str, str] = {}
+    for relative in ("results/campaign/environment.json", "results/reproduction/environment.json"):
+        path = artifact / relative
+        if not path.is_file():
+            continue
+        env = _json(path)
+        status = env.get("recording_status")
+        timing_environment_records[relative] = str(status)
+        if status != "not_recorded_for_original_measurement":
+            errors.append(f"{relative} must truthfully mark the retained run environment as unrecorded")
+        for group in ("cpu", "architecture", "operating_system", "python"):
+            if not isinstance(env.get(group), dict):
+                errors.append(f"{relative} missing {group} object")
+    for relative in ("results/campaign/execution.json", "results/reproduction/execution.json"):
+        path = artifact / relative
+        if not path.is_file():
+            continue
+        records = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(records, list) or not all(
+            row.get("environment_file") == "environment.json" and
+            row.get("environment_recording_status") == "not_recorded_for_original_measurement"
+            for row in records
+        ):
+            errors.append(f"{relative} contains timing rows not linked to its environment record")
+    for relative in (
+        "results/offset-repair.json", "results/bounded-offset-repair.json",
+        "results/offset-repair-reproduction.json", "results/bounded-offset-repair-reproduction.json",
+    ):
+        path = artifact / relative
+        if path.is_file():
+            env = _json(path).get("environment", {})
+            timing_environment_records[relative] = str(env.get("recording_status"))
+            if env.get("recording_status") != "not_recorded_for_original_measurement":
+                errors.append(f"{relative} must mark its retained timing environment as unrecorded")
 
     removable_asserts: dict[str, int] = {}
     for relative in ("campaign.py", "summarize.py", "pilot.py"):
@@ -310,6 +368,8 @@ def audit(artifact: Path) -> dict[str, Any]:
         "test_method_counts": test_counts,
         "total_test_methods": sum(test_counts.values()),
         "import_boundary_violations": import_boundaries,
+        "temporal_validation_dependency": temporal_dependency,
+        "timing_environment_records": timing_environment_records,
         "optimization_removable_asserts": removable_asserts,
         "ledger_row_counts": ledger_counts,
         "project_checks": project_checks,

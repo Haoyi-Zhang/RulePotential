@@ -14,6 +14,7 @@ import resource
 import sys
 import time
 from pathlib import Path
+from run_environment import capture_environment
 ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/'src'))
 from offset_repair import optimal_offsets
@@ -125,7 +126,7 @@ def workload_cases():
 
 def deterministic(value):
     if isinstance(value,dict):
-        return {k:deterministic(v) for k,v in value.items() if not k.endswith('_seconds') and k not in ('peak_rss_kib',)}
+        return {k:deterministic(v) for k,v in value.items() if not k.endswith('_seconds') and k not in ('peak_rss_kib','environment')}
     if isinstance(value,list):return [deterministic(v) for v in value]
     return value
 
@@ -136,8 +137,10 @@ def main():
     if args.out.exists():raise SystemExit('output exists; select a new path')
     resource.setrlimit(resource.RLIMIT_CPU,(35,35))
     resource.setrlimit(resource.RLIMIT_AS,(3500000000,3500000000))
+    environment=capture_environment()
     t=time.process_time();wall=time.monotonic()
     data={'scope':'fixed-proof unbounded-integer minimum offset fields; no witness or partition optimization',
+          'environment':environment,
           'oracle':exact_cases(),'workload_rows':workload_cases(),
           'warmups_per_setting':1,'repetitions_per_setting':7}
     data.update(cpu_seconds=time.process_time()-t,wall_seconds=time.monotonic()-wall,

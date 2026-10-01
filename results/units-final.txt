@@ -18,11 +18,11 @@ test_forward_signs_and_self_variables (test_selection.SelectionTests.test_forwar
 test_reverse_auxiliary_encoding (test_selection.SelectionTests.test_reverse_auxiliary_encoding) ... ok
 test_zero_weight_block_cycle_is_allowed (test_selection.SelectionTests.test_zero_weight_block_cycle_is_allowed) ... ok
 test_guard_and_shift_boundaries (test_temporal.TemporalTests.test_guard_and_shift_boundaries) ... ok
-test_independent_grounders_and_direct_semantics (test_temporal.TemporalTests.test_independent_grounders_and_direct_semantics) ... ok
 test_overlap_empty_intervals_and_coalescing (test_temporal.TemporalTests.test_overlap_empty_intervals_and_coalescing) ... ok
+test_two_expanders_and_tuple_fixed_point_scope (test_temporal.TemporalTests.test_two_expanders_and_tuple_fixed_point_scope) ... ok
 test_type_and_interval_rejections (test_temporal.TemporalTests.test_type_and_interval_rejections) ... ok
 
 ----------------------------------------------------------------------
-Ran 23 tests in 0.544s
+Ran 23 tests in 0.319s
 
 OK

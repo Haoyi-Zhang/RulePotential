@@ -6,6 +6,6 @@ test_strict_input_contracts (__main__.IndependentAuditTests.test_strict_input_co
 test_unbounded_optimizer_against_subset_oracle (__main__.IndependentAuditTests.test_unbounded_optimizer_against_subset_oracle) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 1.132s
+Ran 6 tests in 0.611s
 
 OK

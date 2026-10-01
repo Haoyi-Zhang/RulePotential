@@ -184,18 +184,18 @@ def policy(fixture,horizon):
         # intentionally charged separately from resident update verification.
         (raw,b,atoms),gc=clock(ground,spec,part)
         (r2,b2,a2,_,_),ic=clock(elaborate,spec,part)
-        require((raw,b,atoms)==(r2,b2,a2),'independent initial grounder mismatch')
+        require((raw,b,atoms)==(r2,b2,a2),'second temporal expander mismatch at initialization')
         p,m,w,o,s=initialize(raw,b)
-        require({atoms[i] for i in m}==direct_model(spec),'initial tuple semantics mismatch')
+        require({atoms[i] for i in m}==direct_model(spec),'initial tuple fixed-point mismatch over second-expander output')
         for label,nextspec in snapshots(spec)[1:]:
             (nr,nb,na),front_cpu=clock(ground,nextspec,part)
             (ir,ib,ia,_,_),independent_cpu=clock(elaborate,nextspec,part)
-            require(nr==raw==ir and nb==ib and na==atoms==ia,'independent update grounder mismatch')
+            require(nr==raw==ir and nb==ib and na==atoms==ia,'second temporal expander mismatch after update')
             minus,plus=b-nb,nb-b
             (nm,nw,dc),dred_cpu=clock(dred,p,m,w,b,minus,plus)
             (fm,fw,fc),full_cpu=clock(full,p,nb);require(nm==fm,'policy DRed/fresh mismatch')
             direct,oracle_cpu=clock(direct_model,nextspec)
-            require({atoms[i] for i in nm}==direct,'policy tuple semantics mismatch')
+            require({atoms[i] for i in nm}==direct,'policy tuple fixed-point mismatch over second-expander output')
             (pack,reason),synth_cpu=clock(certificate,p,m,w,o,nm,nw)
             fallback=False;check_cpu=0.0;counter={}
             if pack is None:

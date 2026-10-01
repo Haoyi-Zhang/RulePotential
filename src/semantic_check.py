@@ -1,9 +1,12 @@
-"""Independent finite temporal semantics, with no producer or grounder imports.
+"""Second temporal expander plus a tuple fixed-point evaluator.
 
-This implementation enumerates typed substitutions, tests static guard
-membership, and uses an atom-wise interpretation of interval membership.
-It supplies the trusted ground input for an optional temporal checking entry
-point and a direct tuple-level fixed-point oracle for bounded semantic tests.
+``elaborate`` independently enumerates typed substitutions, tests guard
+membership, interval bounds, and shifts, and imports neither the producer nor
+``src.temporal``.  ``direct_model`` intentionally reuses the clauses and base
+returned by ``elaborate``; only its fixed-point evaluation is independent of the
+producer counter and DRed algorithms.  It is therefore not a third grounding
+front end, and it shares any expansion defect in guard, shift, or interval
+handling with ``elaborate``.
 """
 import itertools
 
@@ -114,11 +117,12 @@ def elaborate(spec, partition='temporal'):
 
 
 def direct_model(spec):
-    """Tuple-level saturation, independent from the counter and DRed engines.
+    """Saturate tuples produced by :func:`elaborate`.
 
-This is not the all-interpretations oracle. It is a second algorithm useful
-for temporal compilation checks too large for that tiny exhaustive oracle.
-"""
+    The fixed-point loop is independent of the producer counter and DRed
+    engines, but grounding is deliberately reused from ``elaborate``.  This is
+    not the all-interpretations oracle or a third end-to-end temporal semantics.
+    """
     _,_,atoms,clauses,known=elaborate(spec)
     if len(atoms)>20000 or len(clauses)>100000: raise ValueError('semantic oracle budget')
     for _ in range(len(atoms)+1):

@@ -12,7 +12,9 @@
     "timeout": false,
     "wall_seconds": 0.878963725000176,
     "cpu_seconds": 0.8783030000000001,
-    "cumulative_cpu_seconds": 0.8783030000000001
+    "cumulative_cpu_seconds": 0.8783030000000001,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-000",
@@ -31,7 +33,9 @@
     "timeout": false,
     "wall_seconds": 0.6829521109998495,
     "cpu_seconds": 0.6823850000000002,
-    "cumulative_cpu_seconds": 1.5606880000000003
+    "cumulative_cpu_seconds": 1.5606880000000003,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-064",
@@ -50,7 +54,9 @@
     "timeout": false,
     "wall_seconds": 0.6771437819998027,
     "cpu_seconds": 0.6765549999999998,
-    "cumulative_cpu_seconds": 2.2372430000000003
+    "cumulative_cpu_seconds": 2.2372430000000003,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-128",
@@ -69,7 +75,9 @@
     "timeout": false,
     "wall_seconds": 0.6415963340000417,
     "cpu_seconds": 0.6409850000000001,
-    "cumulative_cpu_seconds": 2.8782280000000005
+    "cumulative_cpu_seconds": 2.8782280000000005,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-192",
@@ -88,7 +96,9 @@
     "timeout": false,
     "wall_seconds": 0.7088481069999943,
     "cpu_seconds": 0.7082760000000001,
-    "cumulative_cpu_seconds": 3.5865040000000006
+    "cumulative_cpu_seconds": 3.5865040000000006,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-256",
@@ -107,7 +117,9 @@
     "timeout": false,
     "wall_seconds": 0.6440448600001218,
     "cpu_seconds": 0.6433789999999998,
-    "cumulative_cpu_seconds": 4.229883
+    "cumulative_cpu_seconds": 4.229883,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-320",
@@ -126,7 +138,9 @@
     "timeout": false,
     "wall_seconds": 0.693233538000186,
     "cpu_seconds": 0.6924420000000001,
-    "cumulative_cpu_seconds": 4.922325
+    "cumulative_cpu_seconds": 4.922325,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-384",
@@ -145,7 +159,9 @@
     "timeout": false,
     "wall_seconds": 0.6405484259998957,
     "cpu_seconds": 0.6399069999999997,
-    "cumulative_cpu_seconds": 5.562232
+    "cumulative_cpu_seconds": 5.562232,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "correct-448",
@@ -164,7 +180,9 @@
     "timeout": false,
     "wall_seconds": 0.7158695839998472,
     "cpu_seconds": 0.7152700000000004,
-    "cumulative_cpu_seconds": 6.277502
+    "cumulative_cpu_seconds": 6.277502,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-00",
@@ -183,7 +201,9 @@
     "timeout": false,
     "wall_seconds": 0.5960877459997391,
     "cpu_seconds": 0.5952910000000001,
-    "cumulative_cpu_seconds": 6.872793000000001
+    "cumulative_cpu_seconds": 6.872793000000001,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-08",
@@ -202,7 +222,9 @@
     "timeout": false,
     "wall_seconds": 0.6841127210000195,
     "cpu_seconds": 0.6833999999999997,
-    "cumulative_cpu_seconds": 7.556193
+    "cumulative_cpu_seconds": 7.556193,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-16",
@@ -221,7 +243,9 @@
     "timeout": false,
     "wall_seconds": 0.644271142999969,
     "cpu_seconds": 0.6436990000000005,
-    "cumulative_cpu_seconds": 8.199892
+    "cumulative_cpu_seconds": 8.199892,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-24",
@@ -240,7 +264,9 @@
     "timeout": false,
     "wall_seconds": 0.6992279670002972,
     "cpu_seconds": 0.6984760000000001,
-    "cumulative_cpu_seconds": 8.898368
+    "cumulative_cpu_seconds": 8.898368,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-32",
@@ -259,7 +285,9 @@
     "timeout": false,
     "wall_seconds": 0.6503836070000943,
     "cpu_seconds": 0.6497219999999996,
-    "cumulative_cpu_seconds": 9.548089999999998
+    "cumulative_cpu_seconds": 9.548089999999998,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-40",
@@ -278,7 +306,9 @@
     "timeout": false,
     "wall_seconds": 0.7286312229998657,
     "cpu_seconds": 0.7277139999999995,
-    "cumulative_cpu_seconds": 10.275803999999997
+    "cumulative_cpu_seconds": 10.275803999999997,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-48",
@@ -297,7 +327,9 @@
     "timeout": false,
     "wall_seconds": 0.670237631999953,
     "cpu_seconds": 0.6696409999999997,
-    "cumulative_cpu_seconds": 10.945444999999998
+    "cumulative_cpu_seconds": 10.945444999999998,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "candidate-56",
@@ -316,7 +348,9 @@
     "timeout": false,
     "wall_seconds": 0.734417981000206,
     "cpu_seconds": 0.7338360000000012,
-    "cumulative_cpu_seconds": 11.679281
+    "cumulative_cpu_seconds": 11.679281,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "representation-00",
@@ -335,7 +369,9 @@
     "timeout": false,
     "wall_seconds": 0.6089561720000347,
     "cpu_seconds": 0.6082200000000002,
-    "cumulative_cpu_seconds": 12.287500999999999
+    "cumulative_cpu_seconds": 12.287500999999999,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "representation-16",
@@ -354,7 +390,9 @@
     "timeout": false,
     "wall_seconds": 0.6603294799997457,
     "cpu_seconds": 0.656818,
-    "cumulative_cpu_seconds": 12.944319
+    "cumulative_cpu_seconds": 12.944319,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "representation-32",
@@ -373,7 +411,9 @@
     "timeout": false,
     "wall_seconds": 0.620028555999852,
     "cpu_seconds": 0.6193399999999999,
-    "cumulative_cpu_seconds": 13.563659
+    "cumulative_cpu_seconds": 13.563659,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "representation-48",
@@ -392,7 +432,9 @@
     "timeout": false,
     "wall_seconds": 0.636073579999902,
     "cpu_seconds": 0.6354580000000002,
-    "cumulative_cpu_seconds": 14.199117
+    "cumulative_cpu_seconds": 14.199117,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "selection",
@@ -407,7 +449,9 @@
     "timeout": false,
     "wall_seconds": 0.6711236359997201,
     "cpu_seconds": 0.6704239999999998,
-    "cumulative_cpu_seconds": 14.869541
+    "cumulative_cpu_seconds": 14.869541,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "exchange-16",
@@ -426,7 +470,9 @@
     "timeout": false,
     "wall_seconds": 0.5976163400000587,
     "cpu_seconds": 0.5968920000000002,
-    "cumulative_cpu_seconds": 15.466433
+    "cumulative_cpu_seconds": 15.466433,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "exchange-64",
@@ -445,7 +491,9 @@
     "timeout": false,
     "wall_seconds": 0.6031342199999017,
     "cpu_seconds": 0.6025349999999998,
-    "cumulative_cpu_seconds": 16.068968
+    "cumulative_cpu_seconds": 16.068968,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "exchange-256",
@@ -464,7 +512,9 @@
     "timeout": false,
     "wall_seconds": 0.6799433619999036,
     "cpu_seconds": 0.6792990000000005,
-    "cumulative_cpu_seconds": 16.748267000000002
+    "cumulative_cpu_seconds": 16.748267000000002,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "exchange-1024",
@@ -483,7 +533,9 @@
     "timeout": false,
     "wall_seconds": 1.0405393010000807,
     "cpu_seconds": 1.0397829999999995,
-    "cumulative_cpu_seconds": 17.788050000000002
+    "cumulative_cpu_seconds": 17.788050000000002,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "exchange-4096",
@@ -502,7 +554,9 @@
     "timeout": false,
     "wall_seconds": 2.4027510769997207,
     "cpu_seconds": 2.401806,
-    "cumulative_cpu_seconds": 20.189856000000002
+    "cumulative_cpu_seconds": 20.189856000000002,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "exchange-16384",
@@ -521,7 +575,9 @@
     "timeout": false,
     "wall_seconds": 10.991409465999823,
     "cpu_seconds": 10.989706000000002,
-    "cumulative_cpu_seconds": 31.179562000000004
+    "cumulative_cpu_seconds": 31.179562000000004,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "star-16",
@@ -540,7 +596,9 @@
     "timeout": false,
     "wall_seconds": 0.5708452059998308,
     "cpu_seconds": 0.5702139999999997,
-    "cumulative_cpu_seconds": 31.749776000000004
+    "cumulative_cpu_seconds": 31.749776000000004,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "star-64",
@@ -559,7 +617,9 @@
     "timeout": false,
     "wall_seconds": 0.5552488749999611,
     "cpu_seconds": 0.554521,
-    "cumulative_cpu_seconds": 32.304297
+    "cumulative_cpu_seconds": 32.304297,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "star-256",
@@ -578,7 +638,9 @@
     "timeout": false,
     "wall_seconds": 0.6141030150001825,
     "cpu_seconds": 0.613405,
-    "cumulative_cpu_seconds": 32.917702
+    "cumulative_cpu_seconds": 32.917702,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "star-1024",
@@ -597,7 +659,9 @@
     "timeout": false,
     "wall_seconds": 0.7004862379999395,
     "cpu_seconds": 0.6997399999999999,
-    "cumulative_cpu_seconds": 33.617442
+    "cumulative_cpu_seconds": 33.617442,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "star-4096",
@@ -616,7 +680,9 @@
     "timeout": false,
     "wall_seconds": 1.1938601289998587,
     "cpu_seconds": 1.1922099999999998,
-    "cumulative_cpu_seconds": 34.809652
+    "cumulative_cpu_seconds": 34.809652,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "star-16384",
@@ -635,7 +701,9 @@
     "timeout": false,
     "wall_seconds": 3.355247769000016,
     "cpu_seconds": 3.3541030000000003,
-    "cumulative_cpu_seconds": 38.163755
+    "cumulative_cpu_seconds": 38.163755,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "fanin-16",
@@ -654,7 +722,9 @@
     "timeout": false,
     "wall_seconds": 0.5612373439998919,
     "cpu_seconds": 0.5604009999999997,
-    "cumulative_cpu_seconds": 38.724156
+    "cumulative_cpu_seconds": 38.724156,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "fanin-64",
@@ -673,7 +743,9 @@
     "timeout": false,
     "wall_seconds": 0.5359522630001265,
     "cpu_seconds": 0.535005,
-    "cumulative_cpu_seconds": 39.259161
+    "cumulative_cpu_seconds": 39.259161,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "fanin-256",
@@ -692,7 +764,9 @@
     "timeout": false,
     "wall_seconds": 0.5441694380001536,
     "cpu_seconds": 0.5434800000000006,
-    "cumulative_cpu_seconds": 39.802641
+    "cumulative_cpu_seconds": 39.802641,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "fanin-1024",
@@ -711,7 +785,9 @@
     "timeout": false,
     "wall_seconds": 0.6026389449998533,
     "cpu_seconds": 0.6016829999999993,
-    "cumulative_cpu_seconds": 40.404324
+    "cumulative_cpu_seconds": 40.404324,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "fanin-4096",
@@ -730,7 +806,9 @@
     "timeout": false,
     "wall_seconds": 0.770202376999805,
     "cpu_seconds": 0.7695410000000004,
-    "cumulative_cpu_seconds": 41.173865000000006
+    "cumulative_cpu_seconds": 41.173865000000006,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "fanin-16384",
@@ -749,7 +827,9 @@
     "timeout": false,
     "wall_seconds": 1.8203508449996662,
     "cpu_seconds": 1.819113,
-    "cumulative_cpu_seconds": 42.992978
+    "cumulative_cpu_seconds": 42.992978,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-0-8",
@@ -768,7 +848,9 @@
     "timeout": false,
     "wall_seconds": 0.9122637899999972,
     "cpu_seconds": 0.9115560000000001,
-    "cumulative_cpu_seconds": 43.904534
+    "cumulative_cpu_seconds": 43.904534,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-0-16",
@@ -787,7 +869,9 @@
     "timeout": false,
     "wall_seconds": 1.3157618790000924,
     "cpu_seconds": 1.314843,
-    "cumulative_cpu_seconds": 45.219377
+    "cumulative_cpu_seconds": 45.219377,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-0-32",
@@ -806,7 +890,9 @@
     "timeout": false,
     "wall_seconds": 2.114810355999907,
     "cpu_seconds": 2.1141439999999996,
-    "cumulative_cpu_seconds": 47.333521000000005
+    "cumulative_cpu_seconds": 47.333521000000005,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-1-8",
@@ -825,7 +911,9 @@
     "timeout": false,
     "wall_seconds": 1.342087956999876,
     "cpu_seconds": 1.3414560000000004,
-    "cumulative_cpu_seconds": 48.674977000000005
+    "cumulative_cpu_seconds": 48.674977000000005,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-1-16",
@@ -844,7 +932,9 @@
     "timeout": false,
     "wall_seconds": 2.1993660470002396,
     "cpu_seconds": 2.1985679999999994,
-    "cumulative_cpu_seconds": 50.87354500000001
+    "cumulative_cpu_seconds": 50.87354500000001,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-1-32",
@@ -863,7 +953,9 @@
     "timeout": false,
     "wall_seconds": 4.315518017000159,
     "cpu_seconds": 4.314641,
-    "cumulative_cpu_seconds": 55.188186
+    "cumulative_cpu_seconds": 55.188186,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-2-8",
@@ -882,7 +974,9 @@
     "timeout": false,
     "wall_seconds": 1.1521828459999597,
     "cpu_seconds": 1.1514819999999997,
-    "cumulative_cpu_seconds": 56.339668
+    "cumulative_cpu_seconds": 56.339668,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-2-16",
@@ -901,7 +995,9 @@
     "timeout": false,
     "wall_seconds": 1.9654414169999654,
     "cpu_seconds": 1.9601860000000004,
-    "cumulative_cpu_seconds": 58.299854
+    "cumulative_cpu_seconds": 58.299854,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   },
   {
     "case": "policy-2-32",
@@ -920,6 +1016,8 @@
     "timeout": false,
     "wall_seconds": 3.292806348999875,
     "cpu_seconds": 3.2921000000000005,
-    "cumulative_cpu_seconds": 61.591954
+    "cumulative_cpu_seconds": 61.591954,
+    "environment_file": "environment.json",
+    "environment_recording_status": "not_recorded_for_original_measurement"
   }
 ]

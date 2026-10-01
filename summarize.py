@@ -44,8 +44,12 @@ def csv_write(path: Path, rows: list[dict]) -> None:
 
 def summarize(directory: Path) -> dict:
     data=load(directory)
+    environment=json.loads((directory/'environment.json').read_text())
+    if not isinstance(environment,dict) or 'recording_status' not in environment:
+        raise ValueError('missing or invalid timing environment record')
     units=data['units']; require(units['tests']==23 and units['failures']==units['errors']==units['skipped']==0,'unit summary mismatch')
-    summary={'completed_jobs':len(data),'units':{k:v for k,v in units.items() if k!='run'}}
+    summary={'completed_jobs':len(data),'units':{k:v for k,v in units.items() if k!='run'},
+             'timing_environment':{'file':'environment.json',**environment}}
     groups=[('correct', ['transitions','oracle_mismatches','rollback_mismatches','deletions','insertions','mixed','no_base_change']),
             ('candidate',['candidate_packets','accepted_packets','wrong_models_accepted','old_new_pairs_with_certificate','rollback_mismatches']),
             ('representation',['cases','feasible','internal_order','positive_cycle','checked_obstructions','oracle_mismatches'])]
@@ -73,6 +77,9 @@ def summarize(directory: Path) -> dict:
     summary['peak_rss_kib']=max(d['run']['peak_rss_kib'] for d in data.values())
     summary['kernel_cpu_seconds']=sum(d['run']['cpu_seconds'] for d in data.values())
     records=json.loads((directory/'execution.json').read_text())
+    if not all(r.get('environment_file')=='environment.json' and
+               r.get('environment_recording_status')==environment['recording_status'] for r in records):
+        raise ValueError('execution record is not linked to the directory timing environment')
     summary['child_cpu_seconds_including_startup']=sum(r['cpu_seconds'] for r in records)
     summary['timeouts']=sum(r['timeout'] for r in records)
     summary['failed_commands']=sum(r['returncode']!=0 for r in records)
@@ -120,7 +127,7 @@ def main():
         if differences:raise SystemExit('deterministic mismatch: '+', '.join(differences))
         summary['compared_deterministic_jobs']=len(a)
         (args.directory/'comparison.json').write_text(json.dumps({'jobs':len(a),'mismatches':[],
-          'excluded_fields':'per-kernel runtime seconds and per-run resource accounting only'},indent=2)+'\n')
+          'excluded_fields':'per-kernel runtime seconds, per-run resource accounting, and runtime-environment metadata only'},indent=2)+'\n')
     print(json.dumps(summary,indent=2))
 
 if __name__=='__main__':main()

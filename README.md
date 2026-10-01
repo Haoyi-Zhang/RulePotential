@@ -51,6 +51,24 @@ selection outcomes to match. Kernel times and per-job resource observations
 are excluded from equality but retained as new measurements. It is not a
 byte-identity, checksum, or software-environment attestation.
 
+## Timing-environment provenance
+
+The retained original campaign, unbounded repair, bounded repair, and earlier clean
+reproduction outputs did not record CPU model/architecture, OS/kernel, or Python
+implementation and full version. Those fields are not recoverable from the
+retained evidence, and this artifact does not substitute the current machine or a
+later rerun. `results/resource-intake.json` preserves the recorded quota and
+resource envelope; the companion environment records explicitly mark the missing
+fields. Consequently, the old absolute times are traceable to their raw samples
+but not to a fully identified original execution environment.
+
+New `reproduce.py` outputs write `environment.json` before the first job and link
+every `execution.json` row to it. Resuming under a different recorded environment
+is rejected. The unbounded and bounded repair runners embed the same environment
+record in their output JSON. Deterministic comparisons continue to compare models,
+counters, statuses, and byte counts while excluding time, resource, and environment
+metadata.
+
 ## Files and trust boundaries
 
 `src/checker.py` owns the complete rule indexes, selected witnesses, selected
@@ -63,10 +81,12 @@ optimized external engine and is not a complete search over all compatible
 proof choices.
 
 `src/reference_check.py` is a separate full-certificate scan. `src/oracle.py`
-enumerates closed interpretations on tiny ground inputs. `src/temporal.py`
-expands the finite guarded temporal syntax, whereas `src/semantic_check.py`
-uses independent Cartesian substitution and a tuple-level semantic evaluator.
-`src/obstruction_check.py` checks explicit internal-edge or positive-cycle
+enumerates closed interpretations on tiny ground inputs. `src/temporal.py` and
+`semantic_check.elaborate` are two separately implemented temporal expanders.
+`semantic_check.direct_model` intentionally reuses the latter's clauses and base
+and supplies only a fixed-point algorithm independent of producer counter/DRed;
+it is not a third front end and shares that expander's guard, shift, and interval
+failure boundary. `src/obstruction_check.py` checks explicit internal-edge or positive-cycle
 obstructions. `src/selection.py` implements the two Max-Atom reduction directions
 used by the finite assignment tests. `src/offset_repair.py` and
 `src/bounded_offset_repair.py` synthesize exact minimum-field repairs for fixed

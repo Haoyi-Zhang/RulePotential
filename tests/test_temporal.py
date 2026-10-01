@@ -1,26 +1,34 @@
 import copy
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from temporal import ground,exchange_spec,coalesce
-from semantic_check import elaborate,direct_model
+import semantic_check
+from semantic_check import elaborate
 from producer import Program,full,dred,potentials,certificate
 from checker import Session
 
 class TemporalTests(unittest.TestCase):
-    def test_independent_grounders_and_direct_semantics(self):
+    def test_two_expanders_and_tuple_fixed_point_scope(self):
         for n in [1,2,4,8,17]:
             spec=exchange_spec(n)
             raw,base,atoms=ground(spec)
             cr,cb,ca,_,_=elaborate(spec)
             self.assertEqual((raw,base,atoms),(cr,cb,ca))
             m,w,_=full(Program(raw),base)
-            self.assertEqual({atoms[i] for i in m},direct_model(spec))
+            with patch.object(semantic_check, 'elaborate', wraps=semantic_check.elaborate) as reused:
+                tuple_model=semantic_check.direct_model(spec)
+            self.assertEqual(reused.call_count,1)
+            self.assertEqual({atoms[i] for i in m},tuple_model)
             changed=copy.deepcopy(spec);changed['facts']=changed['facts'][1:]
             nr,nb,na=ground(changed)
             nm,nw,_=dred(Program(raw),m,w,base,base-nb,nb-base)
-            self.assertEqual({atoms[i] for i in nm},direct_model(changed))
+            with patch.object(semantic_check, 'elaborate', wraps=semantic_check.elaborate) as reused:
+                changed_tuple_model=semantic_check.direct_model(changed)
+            self.assertEqual(reused.call_count,1)
+            self.assertEqual({atoms[i] for i in nm},changed_tuple_model)
             self.assertEqual(raw,nr)
             o,_=potentials(Program(raw),m,w)
             s=Session(cr,sorted(cb),sorted(m),{str(i):r for i,r in w.items()},o)

@@ -7,6 +7,7 @@ records. Use --quick for the unit suite and a small end-to-end timing sample.
 """
 import argparse,json,os,resource,signal,subprocess,sys,time
 from pathlib import Path
+from run_environment import ensure_environment_file
 ROOT=Path(__file__).resolve().parent
 
 def jobs(quick):
@@ -29,6 +30,7 @@ def main():
     p.add_argument('--max-jobs',type=int);args=p.parse_args();out=args.out.resolve()
     if out.exists() and any(out.iterdir()) and not args.resume:raise SystemExit('nonempty output; use a new --out or explicit --resume')
     out.mkdir(parents=True,exist_ok=True);(out/'logs').mkdir(exist_ok=True)
+    environment=ensure_environment_file(out/'environment.json')
     accounting=out/'execution.json';records=json.loads(accounting.read_text()) if accounting.exists() else []
     spent=sum(x.get('cpu_seconds',0) for x in records);done=0
     for key,tail in jobs(args.quick):
@@ -48,6 +50,7 @@ def main():
         cpu=(after.ru_utime-before.ru_utime)+(after.ru_stime-before.ru_stime);spent+=cpu
         (out/'logs'/(key+'.stdout.txt')).write_bytes(stdout);(out/'logs'/(key+'.stderr.txt')).write_bytes(stderr)
         row={'case':key,'command':['python','campaign.py',*tail,'--out',target.name],
+             'environment_file':'environment.json','environment_recording_status':environment['recording_status'],
              'returncode':proc.returncode,'timeout':timeout,'wall_seconds':time.monotonic()-start,
              'cpu_seconds':cpu,'cumulative_cpu_seconds':spent}
         records.append(row);accounting.write_text(json.dumps(records,indent=2)+'\n')

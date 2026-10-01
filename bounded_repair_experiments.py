@@ -14,6 +14,7 @@ import resource
 import sys
 import time
 from pathlib import Path
+from run_environment import capture_environment
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'src'))
@@ -28,7 +29,7 @@ PROFILES = [
 
 
 def deterministic_view(data):
-    return {k: v for k, v in data.items() if k not in {'cpu_seconds', 'wall_seconds', 'peak_rss_kib'}}
+    return {k: v for k, v in data.items() if k not in {'cpu_seconds', 'wall_seconds', 'peak_rss_kib', 'environment'}}
 
 
 def campaign():
@@ -108,7 +109,9 @@ def main():
     args = parser.parse_args()
     if args.out.exists():
         raise SystemExit('output exists; choose a fresh path')
+    environment = capture_environment()
     result = campaign()
+    result['environment'] = environment
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')
     if args.compare:

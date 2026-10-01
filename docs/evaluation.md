@@ -49,16 +49,22 @@ of randomized-order statistical control is made. Seven-run min/median/max are
 descriptive. Cache, memory layout, garbage collection, and container scheduling
 can affect timings. A CPU clock gave zero readings for short operations in an
 earlier run; the record is preserved, and all final kernel elapsed measurements
-are positive. It is incorrect to divide by the old zero measurements or mix the
-two clocks in a speedup.
+are positive. The original CPU model/architecture, OS/kernel, and Python
+implementation/full version were not recorded for any reported timing group and
+are not recoverable; current-host details are not substituted. It is incorrect to
+divide by the old zero measurements, mix the two clocks in a speedup, or treat the
+absolute values as fully environment-reproducible.
 
 ## Policy traces
 
 Three retained fixtures have 5, 6, and 6 source records. There are horizons 8, 16,
 and 32, twelve fixed edits after initialization, and temporal/singleton block
-choices: 216 sequential updates. Each snapshot is independently regrounded and
-compared against tuple-level semantics. This is example adaptation, not a real
-service experiment, a medical experiment, or Casbin conformance.
+choices: 216 sequential updates. Two separately implemented expanders are compared
+on each snapshot. The tuple fixed-point evaluator then reuses the second expander's
+clauses and base, so it checks saturation against producer counter/DRed but shares
+that expander's guard, shift, and interval-expansion failure boundary. This is
+example adaptation, not a third end-to-end semantics, a real service experiment,
+a medical experiment, or Casbin conformance.
 
 No offset changes occur in these traces. Packet sizes therefore match between
 partitions. Temporal grouping reduces exposed block-pair counts only; it is not
