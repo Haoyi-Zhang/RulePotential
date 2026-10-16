@@ -108,6 +108,22 @@ The original campaign, repairs, and earlier clean reproduction did not record CP
 
 The scientific workflow runs all six current test commands, untimed optimized smoke, retained complete-cost/export checking, the 49-job comparison, and both repair oracles on Ubuntu 24.04. It retains failures and raw outputs with a 12-minute scientific-step watchdog, one-core affinity, and 3.5 GiB limit. Material-integrity CI checks syntax/files only; neither workflow proves theorems or checks live external sources.
 
+## Optional vector schematics
+
+The two manuscript schematics use direct Python drawing and embedded fonts.
+They do not rerun experiments or invoke TeX. Computational checks above remain
+standard-library-only; figure generation additionally needs Matplotlib.
+
+```sh
+python -m pip install -r requirements-figures.txt
+python -B figures/draw_schematics.py
+python -B figures/check_figures.py
+```
+
+Use `--output /path/to/paper/figures` to generate the manuscript copies.
+The existing numerical checking-cost chart has its separate Python renderer
+in the full manuscript source.
+
 ## Optional project audits and licenses
 
 `verify_artifact.py` checks frozen evidence, inventory, and import boundaries without rerunning experiments. It also checks the PDF via Poppler (`pdfinfo`, `pdftotext`) when run in a complete project with a sibling `paper/`; a flat artifact checkout skips that project-only section. Its default output is stdout:

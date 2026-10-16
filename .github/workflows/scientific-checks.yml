@@ -53,6 +53,10 @@ jobs:
           python -B repair_experiments.py --out "$P069_OUTPUT/unbounded.json" --compare results/offset-repair.json >"$P069_OUTPUT/unbounded.stdout.txt" 2>"$P069_OUTPUT/unbounded.stderr.txt"
           python -B bounded_repair_experiments.py --out "$P069_OUTPUT/bounded.json" --compare results/bounded-offset-repair.json >"$P069_OUTPUT/bounded.stdout.txt" 2>"$P069_OUTPUT/bounded.stderr.txt"
           CHECKS
+      - name: Verify direct-Python figures
+        run: |
+          python -m pip install -r requirements-figures.txt
+          python -B figures/check_figures.py
       - name: Upload raw attempts and finite outputs, including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
