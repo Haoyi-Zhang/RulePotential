@@ -201,4 +201,8 @@ solver. Original results are in `results/offset-repair.json` and
 separately. Fifteen repair tests (eight unbounded and seven bounded) do not alter
 the original 23-test suite or the original 49-job campaign's deterministic
 contract. Six additional independent property/input-contract audits are in
-`audit_tests.py`, so the complete delivered test-method count is 44.
+`audit_tests.py`. Together these three suites contain 44 methods, matching the
+historical receipts for that cohort. The current six-suite inventory contains
+60 methods: the additional suites are `potential_regression.py` (6),
+`complete_cost_regression.py` (8), and `pdf_tools_regression.py` (2). This
+inventory does not relabel a historical 44-method run as a new 60-method run.

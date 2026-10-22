@@ -113,7 +113,6 @@ def exchange(out):
     d.edge('y','b1','e','w')
     d.edge('bn','a1','e','n',via=((8.0,0),(8.0,3.0),(2.2,3.0)))
     d.edge('an','b1','s','n',dashed=True,via=((6.5,1.0),(2.2,1.0)))
-    d.line([(-.25,2.25),(.25,1.75)])
     d.text(9.6,2.0,r'$o_A:0\to n$')
     d.text(9.6,0,r'$o_B=0$')
     d.text(4.6,-.95,r'Local labels: root $0$, chain position $i$')
@@ -125,6 +124,5 @@ if __name__=='__main__':
     parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parent)
     a=parser.parse_args();a.output.mkdir(parents=True,exist_ok=True)
     obstruction(a.output);exchange(a.output)
-
 
 
